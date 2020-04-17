@@ -4,6 +4,7 @@ import com.taxcalc.model.request.TaxCalcRequest;
 import com.taxcalc.model.response.TaxCalcResponse;
 import com.taxcalc.service.TaxService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-@RestController
+//@RestController
+@Controller
 @RequestMapping("/tax")
 public class TaxDetailsResource {
 
@@ -25,11 +27,11 @@ public class TaxDetailsResource {
         TaxCalcResponse response = taxService.calculate(taxCalcRequest);
         model.addAttribute("response", response);
         System.out.println("response: "+response);
-        return "tax calculated. Check console for response";
+        return "tax_response";
     }
 
     @GetMapping("/hello")
     public String hello() {
-        return "hello nasreen";
+        return "index";
     }
 }

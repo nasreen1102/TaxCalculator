@@ -2,50 +2,49 @@ package com.taxcalc.model.response;
 
 public class TaxCalcResponse {
 
-    private Long totalIncome;
-    private Long totalExemptionAmount;
-    private Long taxableIncome;
-    private Long taxToBePaid;
+    private Long oldRegimeTax;
+    private Long newRegimeTax;
+    private String suggestion;
 
-    public Long getTotalIncome() {
-        return totalIncome;
+    public TaxCalcResponse() {
     }
 
-    public void setTotalIncome(Long totalIncome) {
-        this.totalIncome = totalIncome;
+    public TaxCalcResponse(Long oldRegimeTax, Long newRegimeTax, String suggestion) {
+        this.oldRegimeTax = oldRegimeTax;
+        this.newRegimeTax = newRegimeTax;
+        this.suggestion = suggestion;
     }
 
-    public Long getTotalExemptionAmount() {
-        return totalExemptionAmount;
+    public Long getOldRegimeTax() {
+        return oldRegimeTax;
     }
 
-    public void setTotalExemptionAmount(Long totalExemptionAmount) {
-        this.totalExemptionAmount = totalExemptionAmount;
+    public void setOldRegimeTax(Long oldRegimeTax) {
+        this.oldRegimeTax = oldRegimeTax;
     }
 
-    public Long getTaxableIncome() {
-        return taxableIncome;
+    public Long getNewRegimeTax() {
+        return newRegimeTax;
     }
 
-    public void setTaxableIncome(Long taxableIncome) {
-        this.taxableIncome = taxableIncome;
+    public void setNewRegimeTax(Long newRegimeTax) {
+        this.newRegimeTax = newRegimeTax;
     }
 
-    public Long getTaxToBePaid() {
-        return taxToBePaid;
+    public String getSuggestion() {
+        return suggestion;
     }
 
-    public void setTaxToBePaid(Long taxToBePaid) {
-        this.taxToBePaid = taxToBePaid;
+    public void setSuggestion(String suggestion) {
+        this.suggestion = suggestion;
     }
 
     @Override
     public String toString() {
         return "TaxCalcResponse{" +
-                "totalIncome=" + totalIncome +
-                ", totalExemptionAmount=" + totalExemptionAmount +
-                ", taxableIncome=" + taxableIncome +
-                ", taxToBePaid=" + taxToBePaid +
+                "oldRegimeTax=" + oldRegimeTax +
+                ", newRegimeTax=" + newRegimeTax +
+                ", suggestion='" + suggestion + '\'' +
                 '}';
     }
 }

@@ -1,15 +1,17 @@
 package com.taxcalc.model.model;
 
+import com.taxcalc.exception.InvalidRangeException;
+
 import javax.validation.constraints.NotNull;
 
-public class Range {
+public class Range { //todo: can make it generic that accepts only numbers <? extends Number>
 
-    private Long startExclusive;
-    private Long endInclusive;
+    private final Long startExclusive;
+    private final Long endInclusive;
 
-    public Range(@NotNull Long startExclusive, @NotNull Long endInclusive) {
+    public Range(@NotNull Long startExclusive, @NotNull Long endInclusive) throws InvalidRangeException {
         if (startExclusive.compareTo(endInclusive) >= 0 ) {
-            throw new RuntimeException("endInclusive value should be greater than startExclusive");
+            throw new InvalidRangeException("endInclusive value should be greater than startExclusive");
         }
         this.startExclusive = startExclusive;
         this.endInclusive = endInclusive;
@@ -18,6 +20,7 @@ public class Range {
     public boolean between(Long number) {
         return number != null && number > startExclusive && number <= endInclusive;
     }
+
     public long difference(){
         return endInclusive - startExclusive;
     }

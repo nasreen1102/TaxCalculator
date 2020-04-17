@@ -1,29 +1,25 @@
 package com.taxcalc.model.request;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
-import java.util.Set;
+import javax.validation.constraints.PositiveOrZero;
 
 public class TaxCalcRequest {
 
-    @NotNull
-    private Boolean oldRegime;
+    @Positive
+    private Long age;
 
     @Positive
     private Long income;
 
-    @Valid
-    private Set<Investment> investments;
+    @PositiveOrZero
+    private Long taxExemptionAmount;
 
-
-    public Boolean getOldRegime() {
-        return oldRegime;
+    public Long getAge() {
+        return age;
     }
 
-    public void setOldRegime(Boolean oldRegime) {
-        this.oldRegime = oldRegime;
+    public void setAge(Long age) {
+        this.age = age;
     }
 
     public Long getIncome() {
@@ -34,11 +30,11 @@ public class TaxCalcRequest {
         this.income = income;
     }
 
-    public Set<Investment> getInvestments() {
-        return investments;
+    public Long getTaxExemptionAmount() {
+        return taxExemptionAmount;
     }
 
-    public void setInvestments(Set<Investment> investments) {
-        this.investments = investments;
+    public void setTaxExemptionAmount(Long taxExemptionAmount) {
+        this.taxExemptionAmount = taxExemptionAmount;
     }
 }

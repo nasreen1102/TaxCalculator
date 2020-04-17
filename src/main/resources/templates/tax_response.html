@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>
+        tax calc response
+    </title>
+</head>
+<body>
+<h1>Tax caluclator</h1>
+
+oldtax: <h1 th:text="${response.oldRegimeTax}" /><br/>
+newTax: <h1 th:text="${response.newRegimeTax}" /><br/>
+@Note, <h1 th:text="${response.suggestion}" /><br/>
+
+
+</body>
+</html>
