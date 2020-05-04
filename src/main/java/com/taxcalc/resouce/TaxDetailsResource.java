@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-//@RestController
-@Controller
+@RestController
+//@Controller
 @RequestMapping("/tax")
 public class TaxDetailsResource {
 
@@ -23,11 +23,11 @@ public class TaxDetailsResource {
     private TaxService taxService;
 
     @PostMapping("/calc")
-    public String getDetails(@Valid @RequestBody TaxCalcRequest taxCalcRequest, Model model) {
+    public TaxCalcResponse getDetails(@Valid @RequestBody TaxCalcRequest taxCalcRequest, Model model) {
         TaxCalcResponse response = taxService.calculate(taxCalcRequest);
         model.addAttribute("response", response);
         System.out.println("response: "+response);
-        return "tax_response";
+        return response;
     }
 
     @GetMapping("/hello")
